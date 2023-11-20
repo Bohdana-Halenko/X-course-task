@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="body">
     <header class="header">
         <div class="container header-wrap">
             <nav class="header-navigation">
@@ -20,13 +20,13 @@
     </header>
     <main class="main">
         <section class="signin">
-            <div class="container">
+            <div class="container form-container">
                 <div class="form-wrap">
-                    <img src="" alt="user" class="signin-form-img">
-                    <form action="" class="signin-form">
-                        <label for="">Username</label>
-                        <input type="text" placeholder="Enter your username">
-                        <button class="signin-form-button">Sign-In</button>
+                    <img src="./img/avatar.png" alt="user" class="signin-form-img">
+                    <form class="signin-form">
+                        <label class="signin-form-label">Username</label>
+                        <input type="text" placeholder="Enter your username" required class="signin-form-input">
+                        <button type="submit" class="signin-form-button">Sign-In</button>
                     </form>
                 </div>
             </div>
