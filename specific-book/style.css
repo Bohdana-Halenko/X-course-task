@@ -59,10 +59,11 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.header-card{
-    fill: grey;
+.header-cart{
+    fill: white;
     width: 25px;
     height: 25px;
+    margin-right: 15px;
 }
 .header-card:hover,
 .header-card:focus{
@@ -73,10 +74,56 @@ body {
     margin-left: 10px;
 }
 
-main{
-    height: 200px;
+.specific-wrap{
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
-
+.specific-book-wrap{
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.specific-book{
+  display: flex;
+  width: 70%;
+}
+.specific-book-info{
+  margin-left: 30px;
+}
+.specific-price{
+  padding: 25px;
+  border: 1px solid rgb(192, 191, 191);
+  border-radius: 20px;
+  width: 25%;
+}
+.price-box{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.price-box-button{
+  display: flex;
+  justify-content: flex-end;
+}
+.price-button{
+  background-color: #2c86e1;
+  border-radius: 50px;
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+}
+.price-button:hover,
+.price-button:focus{
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+.specific-description{
+  margin-top: 50px;
+  line-height: 1.5;
+}
 .footer {
   background-color: #2c86e1;
   padding-top: 10px;
