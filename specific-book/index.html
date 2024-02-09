@@ -47,11 +47,13 @@
                     </div>
                     <div class="price-box">
                         <p>Count</p>
-                        <input type="number" class="count-input">
+                        <button onclick="decreaseCount()">-</button>
+                        <input type="number" class="count-input" min="1" max="42">
+                        <button onclick="increaseCount()">+</button>
+                        
                     </div>
                     <div class="price-box">
-                        <p>Total price</p>
-                        <span>$20,00</span>
+                        <p>Total Price: $<span id="total-price">0</span></p>
                     </div>
                     <div class="price-box-button">
                         <button class="price-button">Add to cart</button>
@@ -66,5 +68,7 @@
             <p class="footer-text">Виконано в <a href="https://prometheus.org.ua/" class="footer-link" target="_blank">Prometheus</a> © 2023</p>
         </div>
     </footer>
+
+    <script src="./main.js"></script>
 </body>
 </html>
