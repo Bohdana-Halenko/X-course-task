@@ -1,43 +1,56 @@
-const countInput = document.querySelector('.count-input');
-    const totalPriceElement = document.getElementById('total-price');
+document.addEventListener("DOMContentLoaded", function () {
+    var countInput = document.querySelector(".count-input");
+    var totalPriceElement = document.getElementById("total-price");
+    var decreaseButton = document.querySelector(".price-box button:nth-child(2)");
+    var increaseButton = document.querySelector(".price-box button:nth-child(4)");
 
-    // Значення кількості книг та ціни за книгу
-    let count = 0;
-    const pricePerBook = 10; // припустимо, що ціна за книгу - $10
-
-    // Функція для оновлення загальної вартості
+    var pricePerBook = 10.99;
+    var maxAllowedBooks = 42;
+    var currentCount = 0;
     function updateTotalPrice() {
-        const totalPrice = count * pricePerBook;
-        totalPriceElement.textContent = totalPrice;
+        var totalPrice = pricePerBook * currentCount;
+        totalPriceElement.textContent = totalPrice.toFixed(2);
     }
 
-    // Функція для збільшення кількості книг
-    function increaseCount() {
-        if (count < 42) {
-            count++;
-            countInput.value = count;
-            updateTotalPrice();
-        }
-    }
-
-    // Функція для зменшення кількості книг
+    // Зменшення кількості книг
     function decreaseCount() {
-        if (count > 1) {
-            count--;
-            countInput.value = count;
+        if (currentCount > 1) {
+            currentCount--;
+            countInput.value = currentCount;
             updateTotalPrice();
         }
     }
 
-    // Обробник подій для полів вводу з клавіатури
-    countInput.addEventListener('input', function () {
-        const inputValue = parseInt(countInput.value);
-
-        if (!isNaN(inputValue) && inputValue >= 1 && inputValue <= 42) {
-            count = inputValue;
+    // Збільшення кількості книг
+    function increaseCount() {
+        if (currentCount < maxAllowedBooks) {
+            currentCount++;
+            countInput.value = currentCount;
             updateTotalPrice();
-        } else {
-            // Введення неприпустимої кількості, скидаємо на минуле значення
-            countInput.value = count;
+        }
+    }
+
+    updateTotalPrice();
+
+    // Обробка подій
+    countInput.addEventListener("input", function () {
+        var newCount = parseInt(countInput.value);
+
+        if (newCount > 0 && newCount <= maxAllowedBooks) {
+            currentCount = newCount;
+            updateTotalPrice();
         }
     });
+
+    decreaseButton.addEventListener("click", decreaseCount);
+    increaseButton.addEventListener("click", increaseCount);
+
+    // Обробник клавіш
+    countInput.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowUp") {
+            increaseCount();
+        } else if (e.key === "ArrowDown") {
+            decreaseCount();
+        }
+    });
+});
